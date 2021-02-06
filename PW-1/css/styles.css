@@ -1,0 +1,57 @@
+
+/* #tophead {
+  background-color: #34495e;
+  height: 3em;
+  font-size: 0.8em;
+  color: white;
+  padding-top: 1em;
+} */
+
+/* .navbar {
+  background-color: rgb(28, 28, 221);
+  font-weight: bold;
+  height: 8em;
+  width: auto;
+} */
+
+
+/* 
+
+body {
+
+} */
+
+/* #tophead a:link { 
+  color: #BBBBBB ;
+} */
+
+/* footer {
+  background-color: #34495e;
+     color: white;
+}
+
+footer a:link {
+   color: #a3d2f1;
+}
+
+
+
+#postJumbo {
+   background-image: url(images/temple.jpg);
+}
+#postJumbo h1 {
+   margin-top: 0;
+}
+
+.postlist h2 {
+  margin-top: 0; 
+}
+
+.postlist div.details {
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.postlist p.excerpt {
+  margin-top: 0.4em;
+} */
