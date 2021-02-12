@@ -1,4 +1,3 @@
-
 window.onload = function(){
 
     //there will be one span element for each input field
@@ -23,43 +22,13 @@ window.onload = function(){
     var confirm = document.getElementById("confirm");
     confirm.parentNode.appendChild(confirmSpan);
     
-    email.onfocus = function(){
-        emailSpan.style.display = "block";
-        emailSpan.className = "info";
-        emailSpan.textContent = "Please enter a valid email. Format: abc@def.xyz";
-    }
-
-    email.onblur = function(){
-        emailSpan.style.display = "none";
-        emailSpan.textContent = "";
-    }
     
-    password.onfocus = function() {
-        passwordSpan.style.display = "block";
-        passwordSpan.className = "info";
-        passwordSpan.textContent = "Password should include atleast six characters.";
-    }
 
-    password.onblur = function() {
-        passwordSpan.style.display = "none";
-        passwordSpan.textContent = "";
-    }
-
-    confirm.onfocus = function() {
-        confirmSpan.style.display = "block";
-        confirmSpan.className = "info";
-        //confirmSpan.textContent = "Password should include atleast six characters.";
-    }
-
-    confirm.onblur = function() {
-        confirmSpan.style.display = "none";
-        confirmSpan.textContent = "";
-    }
     console.log("test1");
 
-    let data = document.getElementsByClassName("btn btn-warning");
+    // let data = document.getElementsByClassName("btn btn-warning");
 
-    console.log(data[0]);
+    // console.log(data[0]);
 
     // document.getElementsByClassName("btn btn-warning")[0].addEventListener('click', function(event) {
     //     validate(emailSpan,email,passwordSpan,password,confirmSpan,confirm);
@@ -68,15 +37,58 @@ window.onload = function(){
         
     // }, false);
 
+
+    email.onfocus = function(){
+        emailSpan.style.display = "block";
+        //emailSpan.className = "info";
+        emailSpan.textContent = "Please enter a valid email. Format: abc@def.xyz";
+        
+    }
+
+    var formElem1 = document.getElementsByClassName("form-control")[0];
+    
+    email.onblur = function(event){
+        emailSpan.style.display = "none";
+        emailSpan.textContent = "";
+        email.classList.remove('error');
+    }
+    
+    password.onfocus = function(event) {
+
+        if (formElem1.value != ""){
+            event.preventDefault();
+            //event.stopPropagation();
+         }
+        passwordSpan.style.display = "block";
+        //passwordSpan.className = "info";
+        passwordSpan.textContent = "Password should include atleast six characters.";
+    }
+
+    password.onblur = function() {
+        passwordSpan.style.display = "none";
+        passwordSpan.textContent = "";
+        password.classList.remove('error');
+        
+    }
+
+    confirm.onfocus = function() {
+        confirmSpan.style.display = "block";
+        //confirmSpan.className = "info";
+        //confirmSpan.textContent = "Password should include atleast six characters.";
+    }
+
+    confirm.onblur = function() {
+        confirmSpan.style.display = "none";
+        confirmSpan.textContent = "";
+        confirm.classList.remove('error');
+    }
+
     document.getElementById("myForm").addEventListener('submit', function(event) {
         event.preventDefault();
         validate(emailSpan,email,passwordSpan,password,confirmSpan,confirm);
     }, false);
 
-
-
-
-    console.log("test2")
+    console.log("test2");
 
     // document.getElementsByClassName("btn btn-warning")[0].onclick = function() {
     //     console.log("test2");
@@ -86,45 +98,51 @@ window.onload = function(){
 }
 
 function validate(emailSpan,email,passwordSpan,password,confirmSpan,confirm){
-        console.log("test");
+        console.log("Inside Validate");
 
-        const regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        
-            if (!regex.test(email.value)) {
+        var v = true;
+        const pattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        //var pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
+            if (!pattern.test(email.value)) {
                 
                 email.classList.add('error');
-                emailSpan.textContent = "Please enter a valid email. Format: abc@def.xyz";
+                emailSpan.textContent = "Not a valid email address. Please re-enter !";
                 emailSpan.style.display = 'block';
+                return false;
             }
-            else{
-                email.classList.remove('error');
+            //  else{
+            //      email.classList.remove('error');
 
-            }
-            emailSpan.style.display = 'block';
-   
+            //  }
+            // //emailSpan.style.display = 'block';
     
-        if (password.value) {
-            if (!(password.value.length >= 6)) {
+            else if (!(password.value.length >= 6)) {
                 password.classList.add('error');
                 passwordSpan.textContent = "Password should include atleast six characters.";
                 passwordSpan.style.display = 'block';
+                return false;
              
             }
-            passwordSpan.style.display = 'block';
+            // else{
+            //     password.classList.remove('error');
+            // }
+            // passwordSpan.style.display = 'block';
             
-        }
-    
-        if (confirm.value) {
-            if (!(confirm.value == password.value)) {
+            else if (!(confirm.value == password.value)) {
+                password.classList.add('error');
                 confirm.classList.add('error');
                 confirmSpan.textContent = "Confirm Password should match Password";
                 confirmSpan.style.display = 'block';
-                
+                return false;
             }
-            confirmSpan.style.display = 'block';
-            
-        }
+            else {
+
+                    email.classList.remove('error');
+                    password.classList.remove('error');
+                    confirm.classList.remove('error');
+             }
+            // confirmSpan.style.display = 'block';
     console.log("Form Submitted!!!!");
-    return true;
+    //return true;
     
 }
