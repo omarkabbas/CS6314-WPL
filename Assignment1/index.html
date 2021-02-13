@@ -14,31 +14,34 @@
    </head>
    <body>
       <header>
-         <!-- Start NavBar 1 -->
+
          <div class="container-fluid">
             <div class="row">
-               <div class="col-md-8 text-light" style="background-color: #34495e;"></div>
-               <div class="col-md-4 text-light" style="background-color: #34495e;">
-                  <ul class="nav">
-                     <li class="nav-item">
-                        <a class="nav-link active font-weight-light" style="color: #f2f3f3" href="#"> <i class="bi bi-box-arrow-right"></i> Logout</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link font-weight-light" style="color: #f2f3f3" href="#"> <i class="bi bi-person"></i> Profile</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link font-weight-light" style="color: #f2f3f3" href="#"> <i class="bi bi-star"></i> Favorites</a>
-                     </li>
-                  </ul>
-               </div>
+               <div class="col-md-2" style="background-color: #34495e;"></div>
+                  <div class="col-md-10" style="background-color: #34495e;">
+                     <div class="row">
+                        <div class="col-md-8 text-light" style="background-color: #34495e;"></div>
+                           <div class="col-md-4 text-light" style="background-color: #34495e;">
+                              <ul class="nav">
+                                 <li class="nav-item">
+                                    <a class="nav-link active font-weight-light" style="color: #f2f3f3" href="#"> <i class="bi bi-box-arrow-right"></i> Logout</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link font-weight-light" style="color: #f2f3f3" href="#"> <i class="bi bi-person"></i> Profile</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link font-weight-light" style="color: #f2f3f3" href="#"> <i class="bi bi-star"></i> Favorites</a>
+                                 </li>
+                              </ul>
+                           </div>
+                     </div>
+                  </div>
             </div>
-         </div>
-         <!-- End NavBar 1 -->
+         </div>           
          <!-- Start NavBar 2 -->
          <div class="container-fluid mb-3">
             <div class="row">
-               <div class="col-md-1 text-light" style="background-color: #0f4b73;"> </div>
-               <div class="col-md-11 text-light" style="background-color: #0f4b73;">
+               <div class="col-md-12 text-light" style="background-color: #0f4b73;">
                   <nav class="navbar mb-3 navbar-expand-lg navbar-light font-weight-light" style="background-color: #0f4b73;">
                      <a class="navbar-brand" style="color: white" href="#">Share Your Travels</a>
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,6 +69,10 @@
                               </div>
                            </li>
                         </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                           <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
                      </div>
                   </nav>
                </div>
@@ -73,84 +80,155 @@
          </div>
          <!-- End NavBar 2 -->
       </header>
-      <!-- Start Search Box -->
+
       <div class="container">
          <div class="row">
-            <div class="col-md-3">
-               <div class="card text-whites mb-3" style="max-width: 18rem;">
-                  <div class="card-header ">Search</div>
-                  <div class="card-body">
-                     <form>
-                        <div class="input-group">
-                           <input type="text" class="form-control" placeholder="search ...">
-                           <span class="input-group-btn">
-                           <a href="#" class="btn btn-primary" style="background-color: orangered;"><i class="bi bi-search"></i></a>
-                           </span>
+               <div class="col-md-2">
+                     <div class="card text-whites border-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header btn-primary" style="background-color: #3498db;">Continents</div>
+                           <ul class="list-group">
+                              <li class="list-group-item"><a href="#">Africa</a></li>
+                              <li class="list-group-item"><a href="#">Asia</a></li>
+                              <li class="list-group-item"><a href="#">Europe</a></li>
+                              <li class="list-group-item"><a href="#">North America</a></li>
+                              <li class="list-group-item"><a href="#">Oceania</a></li>
+                              <li class="list-group-item"><a href="#">South America</a></li>
+                           </ul>
                         </div>
-                     </form>
-                  </div>
-               </div>
-               <!-- End Search Box -->
-               <!-- Start continents card -->  
-               <div class="card text-whites border-primary mb-3" style="max-width: 18rem;">
-                  <div class="card-header btn-primary" style="background-color: #3498db;">Continents</div>
-                  <ul class="list-group">
-                     <li class="list-group-item"><a href="#">Africa</a></li>
-                     <li class="list-group-item"><a href="#">Asia</a></li>
-                     <li class="list-group-item"><a href="#">Europe</a></li>
-                     <li class="list-group-item"><a href="#">North America</a></li>
-                     <li class="list-group-item"><a href="#">Oceania</a></li>
-                     <li class="list-group-item"><a href="#">South America</a></li>
-                  </ul>
-               </div>
-               <!-- End continents card --> 
-               <!-- Start countries card -->  
-               <div class="card text-whites border-primary mb-3" style="max-width: 18rem;">
-                  <div class="card-header btn-primary" style="background-color: #3498db;">Popular Countries</div>
-                  <ul class="list-group">
-                     <li class="list-group-item"><a href="#">Canada</a></li>
-                     <li class="list-group-item"><a href="#">Germany</a></li>
-                     <li class="list-group-item"><a href="#">Ghana</a></li>
-                     <li class="list-group-item"><a href="#">United Kingdom</a></li>
-                     <li class="list-group-item"><a href="#">United States</a></li>
-                  </ul>
-               </div>
-               <!-- End countries card -->       
-            </div>
-            <!-- Start breadcrumb card -->  
-            <div class="col-md-9">
-               <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                     <li class="breadcrumb-item"><a href="#">Favorites</a></li>
-                     <li class="breadcrumb-item active" aria-current="page">Temple of Hephaistos</li>
-                  </ol>
-               </nav>
-               <!-- End breadcrumb card -->  
-               <!-- Start Main Body -->
-               <div id="templeofhephaistos">
-                  <h1>Temple of Hephaistos</h1>
-                  <div class="row">
-                     <div class="col-md-8"> 
-                        <a href="#" class=""><img src="images/temple.jpg" alt="Temple of Hephaistos" class="img-thumbnail"/></a>
+                        <div class="card text-whites border-primary mb-3" style="max-width: 18rem;">
+                           <div class="card-header btn-primary" style="background-color: #3498db;">Popular Countries</div>
+                              <ul class="list-group">
+                                 <li class="list-group-item"><a href="#">Canada</a></li>
+                                 <li class="list-group-item"><a href="#">Germany</a></li>
+                                 <li class="list-group-item"><a href="#">Ghana</a></li>
+                                 <li class="list-group-item"><a href="#">United Kingdom</a></li>
+                                 <li class="list-group-item"><a href="#">United States</a></li>
+                              </ul>
+                        </div>
                      </div>
-                     <div class="col-md-4">
-                        <div class="card border-primary" style="width: 16rem;">
-                           <div class="card-body">
-                              <h6 class="card-title">By <a href="#">Ellie Sullivan </a> </h6>
-                              <h6 class="card-subtitle mb-2">Taken in <a href="#">Greece </a> </h6>
+                     <div class="col-md-10">
+                        <div class="row">
+                           <div class="col-md-8 mb-2">
+                              <a href="#" class="mb-3"><img src="images/temple.jpg" alt="Temple of Hephaistos" class="img-thumbnail"/></a>
                               <p class="card-text">
                                  Located on the western perimeter of Agora in Athens. 
                                  Built in 460-415 BCE, it is the best preserved temple of antiquity.
                               </p>
                            </div>
+                           <div class="col-md-4">
+                              <h1>Temple of Hephaistos</h1>
+                              <div class="card mb-3" style="width: 16rem;">
+                                 <div class="card-body">
+                                    <h6 class="card-title">By <a href="#">Ellie Sullivan </a> </h6>
+                                    <h6 class="card-subtitle mb-2">Country:<a href="#">Greece </a> </h6>
+                                    <h6 class="card-subtitle mb-2">City:<a href="#">Athens </a> </h6>
+                                    <h6 class="card-subtitle mb-2">Taken on: August 8, 2017</h6>
+                                 </div>
+                              </div>
+                                 <div class="btn-group mb-3" role="group" style="width: 16rem;">
+                                    <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-suit-heart-fill"></i></button>
+                                    <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-download"></i></button>
+                                    <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-printer-fill"></i></button>
+                                    <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-chat-left-fill"></i></button>
+                                 </div>
+                                 <h6>Tags</h1>
+
+                                    <div class="card mb-3" style="width: 16rem;">
+                                       <div class="card-body">
+                                          <span class="badge badge-dark">ancient</span>
+                                          <span class="badge badge-dark">gardern</span>
+                                          <span class="badge badge-dark">hill</span>
+                                          <span class="badge badge-dark">ruins</span>
+                                          <span class="badge badge-dark">sunshine</span>
+                                          <span class="badge badge-dark">temple</span>
+                                       </div>
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="col-md-10">
+                              <div class="row">
+                                 <h3>Related Photos</h3>
+                                 <div class="card-deck">
+                                    <div class="card">
+                                       <div class="card-body">
+                                        <img src="images/related/8710320515.jpg" class="card-img-top" alt="...">
+                                       </div>
+                                       <p class="card-text text-center">Theatre of Dionysos</p>
+                                       <div class="d-flex justify-content-center align-items-end">
+                                          <div class="btn-group mb-3" role="group" style="width: 8rem;">
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-eye-fill">View </i></button>
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-suit-heart-fill">Favorite</i></button>
+                                          </div>
+                                       </div>
+                                     </div>
+                                    <div class="card">
+                                      <div class="card-body">
+                                       <img src="images/related/8710513053.jpg" class="card-img-top" alt="...">
+                                      </div>
+                                      <p class="card-text text-center">Theatre of Dionysos</p>
+                                      <div class="d-flex justify-content-center align-items-end">
+                                          <div class="btn-group mb-3" role="group" style="width: 8rem;">
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-eye-fill">View </i></button>
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-suit-heart-fill">Favorite</i></button>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="card">
+                                      <div class="card-body">
+                                       <img src="images/related/8711623884.jpg" class="card-img-top" alt="...">
+                                      </div>
+                                      <p class="card-text text-center">Roman Agora</p>
+                                      <div class="d-flex justify-content-center align-items-end">
+                                          <div class="btn-group mb-3" role="group" style="width: 8rem;">
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-eye-fill">View </i></button>
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-suit-heart-fill">Favorite</i></button>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="card">
+                                       <div class="card-body">
+                                          <img src="images/related/9498388516.jpg" class="card-img-top" alt="..."> 
+                                       </div>
+                                       <p class="card-text text-center">Temple of Ascieptus</p>
+                                       <div class="d-flex justify-content-center align-items-end">
+                                          <div class="btn-group mb-3" role="group" style="width: 8rem;">
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-eye-fill"> View </i></button>
+                                             <button type="button" class="btn btn-outline-dark btn-light"> <i class="bi bi-suit-heart-fill">Favorite</i></button>
+                                          </div>
+                                       </div>
+                                     </div>
+
+
+                                  </div>
+
+
+
+
+
+
+
+
+
+                              </div>
+                           </div>
+
+
+
+
                         </div>
+
+                        
                      </div>
-                  </div>
-               </div>
+                  </div>       
             </div>
-         </div>
-      </div>
+               
+
+
+
+
+
+
+       
       <!-- End Main Body -->
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
