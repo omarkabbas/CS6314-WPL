@@ -1,114 +1,112 @@
-/* 
-.btn-group.special {
-  display: flex;
-}
-
-.special .btn {
-  flex: 4
-}
- */
-
-
-
-
-/* #tophead {
-  background-color: #34495e;
-  height: 3em;
-  font-size: 0.8em;
-  color: white;
-  padding-top: 1em;
-} */
-
-/* .navbar {
-  background-color: rgb(28, 28, 221);
-  font-weight: bold;
-  height: 8em;
-  width: auto;
-} */
-
-
-/* 
-
-body {
-
-} */
-
-/* #tophead a:link { 
-  color: #BBBBBB ;
-} */
-
-/* footer {
-  background-color: #34495e;
-     color: white;
-}
-
-footer a:link {
-   color: #a3d2f1;
-}
-
-
-
-#postJumbo {
-   background-image: url(images/temple.jpg);
-}
-#postJumbo h1 {
-   margin-top: 0;
-}
-
-.postlist h2 {
-  margin-top: 0; 
-}
-
-.postlist div.details {
-  text-transform: uppercase;
-  font-size: 0.8em;
-}
-
-.postlist p.excerpt {
-  margin-top: 0.4em;
-} */
-
-#mission {
+#navBarBrand {
   font-style: italic;
+  font-weight: bold;
   font-family: "Garamond", "Century Gothic", serif;
+  font-size: xx-large;
+  color: white;
   }
 
-footer2 {
-  width: 100%;
-  /*height: 280px;*/
-  color:rgb(255, 255, 255);
-  background-color: #d4d4d4  !important;
-}
-.footer p {  
-  margin-bottom: 0; 
-}
+  .topnav {
+    background: #2b2e7a;
 
-#part2{
-  width: 100%;
-  background-color: rgb(52, 38, 75) !important;
-}
-txt5 {
-  position: relative;
-  top: 20px;
-  background-color: rgb(52, 38, 75) !important;
-}
-txt6 {
-  position: relative;
-  top: 6px;
-  background-color: rgb(52, 38, 75) !important;
-}
+  }
 
-.view-btn {
-  padding: 6px;
-  font-size: 30px;
-  font-size: x-small !important;
-  background: #547af8 !important; 
+  .mainnav {
+    background: #32409a;
+
+  }
+
+  .nav-item a {
+    color: white !important;
+
+  }
+
+  #navBarBrand:hover {
+    color:rgb(228, 77, 102) !important;
+
+  }
+
+  .nav-item a:hover {
+    color:rgb(228, 77, 102) !important;
+
+  }
+  .dropdown, .dropdown-menu, .dropdown-item, .dropdown-divider {
+    background: #32409a !important;
+    border-color: rgb(155, 56, 151) !important;
+
+  }
+
+  .card-header {
+    background: #2b2e7a;
+  }
+
+  .card-header:hover{
+    background:rgb(228, 77, 102) !important;
+  }
+  #templeinfo, #btngrp1, #tags {
+    width: 16rem;
+
+  }
+
+  #btngrp2{
+    width: 12rem;
+  }
+
+  .badge {
+    background: #3b4ca0;
+    color: white;
+  }
+
+
+.btn1 {
+  background: #ee3d80 !important; 
   color: white !important;
 }
-.fav-btn {
-  padding: 6px;
-  font-size: 30px;
-  font-size: x-small !important;
-  background: #ac31a1 !important; 
+.btn2 {
+  background:#2b2e7a !important; 
   color: white !important;
+}
+.btn3 {
+  background:#2ca0db !important; 
+  color: white !important;
+}
+.btn4 {
+  background:#c82066 !important; 
+  color: white !important;
+}
+.btn5 {
+  background:#ed1557 !important; 
+  color: white !important;
+}
+
+#p1 {
+  font-size: 14px;
+}
+.media-body p{
+  font-size: small;
+}
+
+.media-body h10{
+  color:#2ca0db;
+}
+
+.row .p{
+  font-size: small;
+}
+.ftr {
+  background: #32409a !important;
+}
+.p-3 {
+  background: #2b2e7a;
+}
+
+.p-3 a{ 
+  color: orange;
+}
+.viewbtn{
+  background: #36a5dc !important;
+
+}
+.favbtn{
+  background:#ef4281 !important;
 }
