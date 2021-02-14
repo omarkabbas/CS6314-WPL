@@ -24,20 +24,8 @@ window.onload = function(){
 
     console.log("test1");
 
-    // let data = document.getElementsByClassName("btn btn-warning");
-
-    // console.log(data[0]);
-
-    // document.getElementsByClassName("btn btn-warning")[0].addEventListener('click', function(event) {
-    //     validate(emailSpan,email,passwordSpan,password,confirmSpan,confirm);
-        
-    //     event.preventDefault();
-        
-    // }, false);
-
     email.onfocus = function(){
         emailSpan.style.display = "block";
-        //emailSpan.className = "info";
         emailSpan.textContent = "Please enter a valid email. Format: abc@def.xyz";
         
     }
@@ -50,7 +38,6 @@ window.onload = function(){
     
     password.onfocus = function() {
         passwordSpan.style.display = "block";
-        //passwordSpan.className = "info";
         passwordSpan.textContent = "Password should include atleast six characters.";
     }
 
@@ -63,8 +50,6 @@ window.onload = function(){
 
     confirm.onfocus = function() {
         confirmSpan.style.display = "block";
-        //confirmSpan.className = "info";
-        //confirmSpan.textContent = "Password should include atleast six characters.";
         password.classList.remove('error');
     }
 
@@ -81,11 +66,6 @@ window.onload = function(){
     }, false);
 
     console.log("test2");
-
-    // document.getElementsByClassName("btn btn-warning")[0].onclick = function() {
-    //     console.log("test2");
-    //     validate(emailSpan,email,passwordSpan,password,confirmSpan,confirm);
-    // }
     
 }
 
@@ -99,15 +79,15 @@ function validate(emailSpan,email,passwordSpan,password,confirmSpan,confirm){
                 emailSpan.textContent = "Not a valid email address. Please re-enter !";
                 emailSpan.style.display = 'block';
                 v = false;
-                //return false;
+                
             }
     
             if (!(password.value.length >= 6)) {
                 password.classList.add('error');
+                confirm.classList.add('error');
                 passwordSpan.textContent = "Password should include atleast six characters.";
                 passwordSpan.style.display = 'block';
                 v = false;
-                //return false;
              
             }
             if (!(confirm.value == password.value)) {
@@ -116,18 +96,17 @@ function validate(emailSpan,email,passwordSpan,password,confirmSpan,confirm){
                 confirmSpan.textContent = "Confirm Password should match Password";
                 confirmSpan.style.display = 'block';
                 v = false;
-                //return false;
             }
             if (v) {
 
                     email.classList.remove('error');
                     password.classList.remove('error');
                     confirm.classList.remove('error');
+                    document.getElementById("myForm").submit();
                     console.log("Form Submitted!!!!");
 
              }
 
     return v;
-    //return true;
-    
+
 }
