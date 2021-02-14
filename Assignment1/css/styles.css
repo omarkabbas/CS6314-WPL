@@ -67,3 +67,48 @@ footer a:link {
 .postlist p.excerpt {
   margin-top: 0.4em;
 } */
+
+#mission {
+  font-style: italic;
+  font-family: "Garamond", "Century Gothic", serif;
+  }
+
+footer2 {
+  width: 100%;
+  /*height: 280px;*/
+  color:rgb(255, 255, 255);
+  background-color: #d4d4d4  !important;
+}
+.footer p {  
+  margin-bottom: 0; 
+}
+
+#part2{
+  width: 100%;
+  background-color: rgb(52, 38, 75) !important;
+}
+txt5 {
+  position: relative;
+  top: 20px;
+  background-color: rgb(52, 38, 75) !important;
+}
+txt6 {
+  position: relative;
+  top: 6px;
+  background-color: rgb(52, 38, 75) !important;
+}
+
+.view-btn {
+  padding: 6px;
+  font-size: 30px;
+  font-size: x-small !important;
+  background: #547af8 !important; 
+  color: white !important;
+}
+.fav-btn {
+  padding: 6px;
+  font-size: 30px;
+  font-size: x-small !important;
+  background: #ac31a1 !important; 
+  color: white !important;
+}
