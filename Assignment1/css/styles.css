@@ -1,0 +1,112 @@
+#navBarBrand {
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Garamond", "Century Gothic", serif;
+  font-size: xx-large;
+  color: white;
+  }
+
+  .topnav {
+    background: #2b2e7a;
+
+  }
+
+  .mainnav {
+    background: #32409a;
+
+  }
+
+  .nav-item a {
+    color: white !important;
+
+  }
+
+  #navBarBrand:hover {
+    color:rgb(228, 77, 102) !important;
+
+  }
+
+  .nav-item a:hover {
+    color:rgb(228, 77, 102) !important;
+
+  }
+  .dropdown, .dropdown-menu, .dropdown-item, .dropdown-divider {
+    background: #32409a !important;
+    border-color: rgb(155, 56, 151) !important;
+
+  }
+
+  .card-header {
+    background: #2b2e7a;
+  }
+
+  .card-header:hover{
+    background:rgb(228, 77, 102) !important;
+  }
+  #templeinfo, #btngrp1, #tags {
+    width: 16rem;
+
+  }
+
+  #btngrp2{
+    width: 12rem;
+  }
+
+  .badge {
+    background: #3b4ca0;
+    color: white;
+  }
+
+
+.btn1 {
+  background: #ee3d80 !important; 
+  color: white !important;
+}
+.btn2 {
+  background:#2b2e7a !important; 
+  color: white !important;
+}
+.btn3 {
+  background:#2ca0db !important; 
+  color: white !important;
+}
+.btn4 {
+  background:#c82066 !important; 
+  color: white !important;
+}
+.btn5 {
+  background:#ed1557 !important; 
+  color: white !important;
+}
+
+#p1 {
+  font-size: 14px;
+}
+.media-body p{
+  font-size: small;
+}
+
+.media-body h10{
+  color:#2ca0db;
+}
+
+.row .p{
+  font-size: small;
+}
+.ftr {
+  background: #32409a !important;
+}
+.p-3 {
+  background: #2b2e7a;
+}
+
+.p-3 a{ 
+  color: orange;
+}
+.viewbtn{
+  background: #36a5dc !important;
+
+}
+.favbtn{
+  background:#ef4281 !important;
+}
