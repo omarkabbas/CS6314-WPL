@@ -10,7 +10,7 @@ $(document).ready(function() {
     console.log('inside here');
     $.ajax({
   
-      url: "movies.xml",
+      url: "../XML/movies.xml",
       crossDomain: true,
       //headers: {"Access-Control-Allow-Headers": "*"},
       dataType: "xml",
