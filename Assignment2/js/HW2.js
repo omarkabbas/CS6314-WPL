@@ -1,19 +1,16 @@
-
-
 $(document).ready(function () {
     var r;
     $.ajax({
         url: '../js/data.json',
         dataType: "json",
         success: function (result) {
-            //console.log(result);
             r = result;
             r.forEach(element => {
                 appendImages(element);
             });
         },
         error: function (e) {
-            // console.log(e);
+            console.log(e);
         }
     });
 
@@ -39,12 +36,10 @@ $(document).ready(function () {
         $('#preview').fadeIn(1000); //fading over 1 sec period
     });
     $(document).on('mouseleave', 'img', function () {
-        // console.log('mouseleave event added');
         $(this).removeClass('gray');
         $('#preview').remove();
     });
     $(document).on('mousemove', 'img', function (e) {
-        //console.log(e.pageX + '\t' + e.pageY );
         $('#preview').css({
             left: e.pageX,
             top: e.pageY + 15
@@ -53,9 +48,9 @@ $(document).ready(function () {
 });
 
 function appendImages(image) {
-    // console.log(image);
     $('#imgContainer').append(
-        '<img src="images/square/' + image['path'] + '"' + 
-        ' alt = "' + image['title'] + '"' + '> ' //setting alt attribute to title of each image object
+        '<img src="images/square/' 
+        + image['path'] + '"' 
+        + ' alt = "' + image['title'] + '"' + '> ' //setting alt attribute to title of each image object
     );
 }
