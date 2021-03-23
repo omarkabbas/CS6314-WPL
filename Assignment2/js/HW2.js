@@ -9,7 +9,7 @@ $(document).ready(function () {
             //console.log(result);
             r = result;
             r.forEach(element => {
-                populateImages(element);
+                appendImages(element);
             });
         },
         error: function (e) {
@@ -52,7 +52,7 @@ $(document).ready(function () {
     });
 });
 
-function populateImages(image) {
+function appendImages(image) {
     // console.log(image);
     $('#imgContainer').append(
         '<img src="images/square/' + image['path'] + '"' + 
