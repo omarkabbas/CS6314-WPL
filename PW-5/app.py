@@ -12,7 +12,7 @@ app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_DB'] = 'TodoList'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-app.config['MYSQL_DATABASE_PORT'] = 3307
+app.config['MYSQL_DATABASE_PORT'] = 8889
 mysql.init_app(app)
 
 
@@ -138,7 +138,7 @@ def addItem():
         return render_template('error.html', error = str(e))
 
 #@app.route('/listItems', methods=['GET'])
-@app.route('/listItems')
+@app.route('/listTodos')
 def listItems():
     try:
         if session.get('user'):
@@ -148,19 +148,19 @@ def listItems():
         
             cursor.execute("SELECT * FROM tbl_todo WHERE userid = %s", (_user))
             #cursor.execute("SELECT * FROM tbl_todo WHERE userid = 1")
-            todoitems = cursor.fetchall()
+            todos = cursor.fetchall()
             #return json.dumps({'message': 'inside If statement'})
-            todoitems_dict = []
+            todos_dict = []
 
-            for item in todoitems:
+            for item in todos:
                 todo_dict = {
                     'id': item[0],
                     'title': item[1],
                     'description': item[2]
                 }
-                todoitems_dict.append(todo_dict)
+                todos_dict.append(todo_dict)
 
-            return json.dumps(todoitems_dict)
+            return json.dumps(todos_dict)
         else:
             #return render_template('error.html', error = 'Unauthorized Access')
             return json.dumps({'message': 'Not working!'})
