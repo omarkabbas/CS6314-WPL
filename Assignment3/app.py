@@ -153,7 +153,7 @@ def getTodoItemById():
             result = cursor.fetchall()
  
             todoitem = []
-            todoitem.append({'id':result[0][0],'title':result[0][1],'description':result[0][2]})
+            todoitem.append({'id':result[0][0],'title':result[0][1],'description':result[0][2],'completed':result[0][4]})
  
             return json.dumps(todoitem)
         else:
@@ -168,11 +168,12 @@ def updateTodoItem():
             _user = session.get('user')
             _title = request.form['title']
             _description = request.form['description']
+            _completed = request.form['completed']
             _todoitem_id = request.form['id']
  
             conn = mysql.connect()
             cursor = conn.cursor()
-            cursor.execute("UPDATE tbl_todo set title = %s , description = %s where id = %s and userid = %s",(_title,_description,_todoitem_id,_user))
+            cursor.execute("UPDATE tbl_todo set title = %s , description = %s, completed = %s where id = %s and userid = %s",(_title,_description,_completed,_todoitem_id,_user))
             data = cursor.fetchall()
  
             if len(data) is 0:
@@ -231,7 +232,8 @@ def listItems():
                 todo_dict = {
                     'id': item[0],
                     'title': item[1],
-                    'description': item[2]
+                    'description': item[2],
+                    'completed': item[4]
                 }
                 todos_dict.append(todo_dict)
 
