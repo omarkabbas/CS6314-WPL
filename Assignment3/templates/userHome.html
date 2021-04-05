@@ -45,6 +45,7 @@
 
         <div class="jumbotron">
             <h1>Welcome Home !!</h1>
+            <div id=todoLists></div>
             <!-- <div>
               <table class="table table-striped table-bordered"" id="todostbl">
                 <thead  class="thead-dark">
@@ -82,6 +83,10 @@
                         <label for="todoitem-description" class="col-form-label">Description:</label>
                         <textarea class="form-control" id="editDescription"></textarea>
                       </div>
+                      <div class="form-group">
+                        <label for="todoitem-title" class="col-form-label">Complete/Incomplete:</label>
+                        <input type="checkbox" class="form-control" id="editCompleted">
+                      </div>
                     </form>
                   </div>
                   <div class="modal-footer">
@@ -91,7 +96,7 @@
                 </div>
               </div>
             </div>
-              <!-- Edit Todo Item Modal -->
+              <!-- Delete Todo Item Modal -->
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -170,10 +175,20 @@ function editTodoItem(todo) {
           //Populate the Pop up
         $('#editTitle').val(todoitem[0]['title']);
         $('#editDescription').val(todoitem[0]['description']);
-         
+        
+        if (todoitem[0]['completed'] == '1'){
+          $('#editCompleted').attr('checked', true);
+          $('#editCompleted').val('1');
+        }
+        else{
+          $('#editCompleted').attr('checked', false);
+          $('#editCompleted').val('0');
+
+        }
+        
         // Trigger the Pop Up
         $('#editModal').modal();
-
+        console.log("completed val: " + todoitem[0]['completed'] );
 
         },
         error: function(error) {
@@ -191,8 +206,8 @@ function getTodoItems (){
                 success: function(response) {
 
                     //empty existing todo items in jumbotron
-                    $('.jumbotron').empty();
-
+                    //$('.jumbotron').empty();
+                    $('#todoLists').empty();
                      var data = '';
                      console.log(response);
 
@@ -213,6 +228,11 @@ function getTodoItems (){
                       .attr('class', 'list-group-item')
                       .append($('<span>')
                       .attr('class', 'badge badge-info'),
+                      $('<span>')
+                      .attr({
+                        "id" : 'status',
+                        "class": 'badge'
+                        }),
                       $('<h4>')
                       .attr('class', 'list-group-item-heading'),
                       $('<p>')
@@ -220,14 +240,14 @@ function getTodoItems (){
                       $('<button>')
                         .attr({
                         "type" : "button",
-                        "class" : "btn bi-pencil",
+                        "class" : "btn btn-primary bi-pencil float-right",
                         "id" : 'editbtn',
                         "onclick" : 'editTodoItem(this)'
                         }),
                       $('<button>')
                         .attr({
                         "type" : "button",
-                        "class" : "btn bi-trash",
+                        "class" : "btn btn-danger bi-trash float-right",
                         "id" : 'deletebtn',
                         "onclick" : 'confirmTodoItemDelete(this)'
                         })
@@ -238,10 +258,21 @@ function getTodoItems (){
                     $(data).find('span').text('' + value.id);
                     $(data).find('#editbtn').attr('data-id', value.id);
                     $(data).find('#deletebtn').attr('data-id', value.id);
+
+                    if(value.completed == '1'){
+                      $(data).find('#status').text('Complete');
+                      $(data).find('#status').attr('class', 'badge badge-success float-right');
+                    }
+                    else{
+                    $(data).find('#status').text('Incomplete');
+                    $(data).find('#status').attr('class', 'badge badge-danger float-right');
+                    }
                     $(data).find('#editbtn').text(' Edit');
+                    $(data).find('#deletebtn').text(' Delete');
                     $(data).find('h4').text(value.title);
                     $(data).find('p').text(value.description);
-                    $('.jumbotron').append(data);
+                    //$('.jumbotron').append(data);
+                    $('#todoLists').append(data);
                   });
 
                 },
@@ -259,11 +290,18 @@ $(document).ready(function() {
         getTodoItems();
           
           $('#updatebtn').click(function(){
+
+            var iscompleted = $('#editCompleted').is(':checked') ? 1 : 0;
             $.ajax({
               url : '/updateTodoItem',
-              data : {title:$('#editTitle').val(),description:$('#editDescription').val(),id:localStorage.getItem('editId')},
-              type : 'POST',
-              success: function(res){      
+              data : {
+                  title:$('#editTitle').val(),
+                  description:$('#editDescription').val(),
+                  completed:iscompleted,
+                  id:localStorage.getItem('editId') },
+                  type : 'POST',
+              success: function(res){     
+                console.log("completed val2: " + iscompleted); 
                 
                 console.log(res);
                 $('#editModal').modal('hide');                  
