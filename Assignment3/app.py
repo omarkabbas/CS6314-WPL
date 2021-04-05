@@ -138,6 +138,81 @@ def addItem():
         return render_template('error.html', error = str(e))
 
 #@app.route('/listItems', methods=['GET'])
+
+@app.route('/getTodoItemById',methods=['POST'])
+def getTodoItemById():
+    try:
+        if session.get('user'):
+ 
+            _id = request.form['id']
+            _user = session.get('user')
+ 
+            conn = mysql.connect()
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM tbl_todo WHERE id= %s and userid = %s", (_id,_user))
+            result = cursor.fetchall()
+ 
+            todoitem = []
+            todoitem.append({'id':result[0][0],'title':result[0][1],'description':result[0][2]})
+ 
+            return json.dumps(todoitem)
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html',error = str(e))
+
+@app.route('/updateTodoItem', methods=['POST'])
+def updateTodoItem():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+            _title = request.form['title']
+            _description = request.form['description']
+            _todoitem_id = request.form['id']
+ 
+            conn = mysql.connect()
+            cursor = conn.cursor()
+            cursor.execute("UPDATE tbl_todo set title = %s , description = %s where id = %s and userid = %s",(_title,_description,_todoitem_id,_user))
+            data = cursor.fetchall()
+ 
+            if len(data) is 0:
+                conn.commit()
+                return json.dumps({'status':'OK'})
+            else:
+                return json.dumps({'status':'ERROR'})
+    except Exception as e:
+        return json.dumps({'status':'Unauthorized access'})
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.route('/deleteTodoItem',methods=['POST'])
+def deleteTodoItem():
+    try:
+        if session.get('user'):
+            _id = request.form['id']
+            _user = session.get('user')
+
+            conn = mysql.connect()
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM tbl_todo WHERE id= %s and userid = %s", (_id,_user))
+            result = cursor.fetchall()
+
+            if len(result) is 0:
+                conn.commit()
+                return json.dumps({'status':'OK'})
+            else:
+                return json.dumps({'status':'An Error occured'})
+        else:
+            return render_template('error.html',error = 'Unauthorized Access')
+    except Exception as e:
+        return json.dumps({'status':str(e)})
+    finally:
+        cursor.close()
+        conn.close()
+
+
+
 @app.route('/listTodos')
 def listItems():
     try:
@@ -173,9 +248,11 @@ def listItems():
 
 
 
+
+
 if __name__ == "__main__":
     app.run()   
 
 
-
+#ALTER TABLE table_name AUTO_INCREMENT = start_value
 
