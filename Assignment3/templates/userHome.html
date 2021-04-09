@@ -176,7 +176,7 @@ function editTodoItem(todo) {
         $('#editTitle').val(todoitem[0]['title']);
         $('#editDescription').val(todoitem[0]['description']);
         
-        if (todoitem[0]['completed'] == '1'){
+        if (todoitem[0]['isComplete'] == '1'){
           $('#editCompleted').attr('checked', true);
           $('#editCompleted').val('1');
         }
@@ -188,7 +188,7 @@ function editTodoItem(todo) {
         
         // Trigger the Pop Up
         $('#editModal').modal();
-        console.log("completed val: " + todoitem[0]['completed'] );
+        console.log("completed val: " + todoitem[0]['isComplete'] );
 
         },
         error: function(error) {
@@ -259,7 +259,7 @@ function getTodoItems (){
                     $(data).find('#editbtn').attr('data-id', value.id);
                     $(data).find('#deletebtn').attr('data-id', value.id);
 
-                    if(value.completed == '1'){
+                    if(value.isComplete == '1'){
                       $(data).find('#status').text('Complete');
                       $(data).find('#status').attr('class', 'badge badge-success float-right');
                     }
@@ -297,7 +297,7 @@ $(document).ready(function() {
               data : {
                   title:$('#editTitle').val(),
                   description:$('#editDescription').val(),
-                  completed:iscompleted,
+                  isComplete:iscompleted,
                   id:localStorage.getItem('editId') },
                   type : 'POST',
               success: function(res){     
